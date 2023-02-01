@@ -1,10 +1,79 @@
 body {
     margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;#
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .container {
     display: flex;
     justify-content: space-around;
+    background: #1B244A;
+    max-width: 1000px;
 }
 
+.score-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #080001;
+    width: 150px;
+    height: 125px;
+}
+
+.buttons-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+button {
+    color: #9AABD8;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: transparent;
+    border: 1px solid #9AABD8;
+}
+
+.score-button {
+    border-radius: 5px;
+    padding: 10px 10px;
+}
+
+.reset-btn {
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.team-name {
+    font-size: 45px;
+    margin: 10px;
+    color: white;
+}
+
+.score-title {
+    display: block;
+    margin: 0;
+    /* font-family: 'Cursed Timer ULiL', sans-serif; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 100px;
+    color: #F94F6D;
+    line-height: normal;
+}
 /* font-family: 'Cursed Timer ULiL', sans-serif; */

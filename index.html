@@ -5,17 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.cdnfonts.com/css/cursed-timer-ulil" rel="stylesheet">
     <script src="script.js" defer></script>
     <title>Basketball Scoreboard</title>
 </head>
 <body>
-    <div class="container">
-        <div>
-            <h3>HOME</h3>
-        </div>
-        <div>
-            <h3>GUEST</h3>
+    <div id="main-container">
+        <div class="container">
+            <div class="score-container">
+                <h3 class="team-name">HOME</h3>
+                <div class="score">
+                    <h1 class="score-title" id="home-score">0</h1>
+                </div>
+                <div class="buttons-container">
+                    <div class="increment-btn-container">
+                        <button class="score-button" onclick="incrementHome(1)">+1</button>
+                        <button class="score-button" onclick="incrementHome(2)">+2</button>
+                        <button class="score-button" onclick="incrementHome(3)">+3</button>
+                    </div>
+                    <div class="reset-btn-contai">
+                        <button class="reset-btn" onclick="resetHome()">Reset</button>
+                    </div>
+                </div>
+            </div>
+            <div class="score-container">
+                <h3 class="team-name">GUEST</h3>
+                <div class="score">
+                    <h1 class="score-title" id="guest-score">0</h1>
+                </div>
+                <div class="buttons-container">
+                    <div class="increment-btn-container">
+                        <button class="score-button" onclick="incrementGuest(1)">+1</button>
+                        <button class="score-button" onclick="incrementGuest(2)">+2</button>
+                        <button class="score-button" onclick="incrementGuest(3)">+3</button>
+                    </div>
+                    <div class="reset-btn-contai">
+                        <button class="reset-btn" onclick="resetGuest()">Reset</button>
+                    </div>
+                </div>
+                </div>
         </div>
     </div>
 </body>
