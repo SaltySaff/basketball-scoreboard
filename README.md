@@ -1,0 +1,1 @@
+A simple basketball scoreboard made using basic HTML/CSS and JavaScript.
