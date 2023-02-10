@@ -1,4 +1,4 @@
-# Basketball Scoreboard Project
+# Basketball Scoreboard
 A simple and lightweight JavaScript application that provides a real-time score board for a basketball game.
 
 ## Features
