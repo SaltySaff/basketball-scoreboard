@@ -1,41 +1,60 @@
-let homeScore = document.getElementById("home-score")
-let guestScore = document.getElementById("guest-score")
-let homeCount = 0;
-let guestCount = 0;
+const count = {
+    'home': 0,
+    'guest': 0
+}
 
-function incrementHome(amount) {
-    homeScore.textContent = homeCount += amount
-    checkForWinner()
+const score = {
+    'home': document.getElementById("home-score"),
+    'guest': document.getElementById("guest-score")
 }
-function incrementGuest(amount) {
-    guestScore.textContent = guestCount += amount
-    checkForWinner()
-}
-function resetHome() {
-    homeCount = 0
-    homeScore.textContent = 0
-    checkForWinner()
-}
-function resetGuest() {
-    guestCount = 0
-    guestScore.textContent = 0
-    checkForWinner()
-}
-function highlightHome() {
-    if (homeCount > guestCount) {
-        homeScore.style.color = "lawngreen"
-    } else {
-        homeScore.style.color = "#F94F6D"
+
+// event listeners
+
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains("score-btn")) {
+        handleScoreBtn(e.target.dataset.score, e.target.dataset.side)  
+    } 
+    else if (e.target.classList.contains("reset-btn")) {
+        handleResetBtn(e.target.dataset.side)
     }
+})
+
+// event listener handler functions
+
+function handleScoreBtn(score, side) {
+    incrementScore(parseInt(score), side)
 }
-function highlightGuest() {
-    if (guestCount > homeCount) {
-        guestScore.style.color = "lawngreen"
-    } else {
-        guestScore.style.color = "#F94F6D"
-    }
+
+function handleResetBtn(side) {
+    resetScore(side)
 }
-function checkForWinner() {
-    highlightHome()
-    highlightGuest()
+
+// scoreboard functions
+
+function incrementScore(amount, side) {
+    score[side].textContent = count[side] += amount
 }
+
+function resetScore(side) {
+    count[side] = 0
+    score[side].textContent = 0
+}
+
+// function highlightHome() {
+//     if (homeCount > guestCount) {
+//         homeScore.style.color = "lawngreen"
+//     } else {
+//         homeScore.style.color = "#F94F6D"
+//     }
+// }
+// function highlightGuest() {
+//     if (guestCount > homeCount) {
+//         guestScore.style.color = "lawngreen"
+//     } else {
+//         guestScore.style.color = "#F94F6D"
+//     }
+// }
+// function checkForWinner() {
+//     highlightHome()
+//     highlightGuest()
+// }
