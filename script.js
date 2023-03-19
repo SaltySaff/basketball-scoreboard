@@ -1,9 +1,11 @@
-const count = {
+// score counts and score elements
+
+const score = {
     'home': 0,
     'guest': 0
 }
 
-const score = {
+const scoreEl = {
     'home': document.getElementById("home-score"),
     'guest': document.getElementById("guest-score")
 }
@@ -12,7 +14,8 @@ const score = {
 
 document.addEventListener('click', function(e) {
     if (e.target.classList.contains("score-btn")) {
-        handleScoreBtn(e.target.dataset.score, e.target.dataset.side)  
+        handleScoreBtn(e.target.dataset.score, e.target.dataset.side)
+        highlightLead()
     } 
     else if (e.target.classList.contains("reset-btn")) {
         handleResetBtn(e.target.dataset.side)
@@ -32,12 +35,20 @@ function handleResetBtn(side) {
 // scoreboard functions
 
 function incrementScore(amount, side) {
-    score[side].textContent = count[side] += amount
+    scoreEl[side].textContent = score[side] += amount
 }
 
 function resetScore(side) {
-    count[side] = 0
-    score[side].textContent = 0
+    score[side] = 0
+    scoreEl[side].textContent = 0
+    highlightLead()
+}
+
+function highlightLead() {
+    const winningSide = score.home > score.guest ? 'home' : 'guest'
+    const losingSide = winningSide === 'home' ? 'guest' : 'home'
+    scoreEl[winningSide].style.color = "lawngreen"
+    scoreEl[losingSide].style.color = "#F94F6D"
 }
 
 // function highlightHome() {
