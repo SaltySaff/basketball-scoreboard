@@ -9,40 +9,38 @@
     <title>Basketball Scoreboard</title>
 </head>
 <body>
-    <div id="main-container">
-        <div class="container">
-            <div class="score-container">
-                <h3 class="team-name">HOME</h3>
-                <div class="score">
-                    <h1 class="score-title" id="home-score">0</h1>
+    <div class="container">
+        <div class="score-container">
+            <h3 class="team-name">HOME</h3>
+            <div class="score">
+                <h1 class="score-title" id="home-score">0</h1>
+            </div>
+            <div class="buttons-container">
+                <div class="increment-btn-container">
+                    <button class="score-btn" data-score="1" data-side="home">+1</button>
+                    <button class="score-btn" data-score="2" data-side="home">+2</button>
+                    <button class="score-btn" data-score="3" data-side="home">+3</button>
                 </div>
-                <div class="buttons-container">
-                    <div class="increment-btn-container">
-                        <button class="score-btn" data-score="1" data-side="home">+1</button>
-                        <button class="score-btn" data-score="2" data-side="home">+2</button>
-                        <button class="score-btn" data-score="3" data-side="home">+3</button>
-                    </div>
-                    <div class="reset-btn-contai">
-                        <button class="reset-btn" data-side="home">Reset</button>
-                    </div>
+                <div class="reset-btn-contai">
+                    <button class="reset-btn" data-side="home">Reset</button>
                 </div>
             </div>
-            <div class="score-container">
-                <h3 class="team-name">GUEST</h3>
-                <div class="score">
-                    <h1 class="score-title" id="guest-score">0</h1>
+        </div>
+        <div class="score-container">
+            <h3 class="team-name">GUEST</h3>
+            <div class="score">
+                <h1 class="score-title" id="guest-score">0</h1>
+            </div>
+            <div class="buttons-container">
+                <div class="increment-btn-container">
+                    <button class="score-btn" data-score="1" data-side="guest">+1</button>
+                    <button class="score-btn" data-score="2" data-side="guest">+2</button>
+                    <button class="score-btn" data-score="3" data-side="guest">+3</button>
                 </div>
-                <div class="buttons-container">
-                    <div class="increment-btn-container">
-                        <button class="score-btn" data-score="1" data-side="guest">+1</button>
-                        <button class="score-btn" data-score="2" data-side="guest">+2</button>
-                        <button class="score-btn" data-score="3" data-side="guest">+3</button>
-                    </div>
-                    <div class="reset-btn-contai">
-                        <button class="reset-btn" data-side="guest">Reset</button>
-                    </div>
+                <div class="reset-btn-contai">
+                    <button class="reset-btn" data-side="guest">Reset</button>
                 </div>
-                </div>
+            </div>
         </div>
     </div>
 </body>

@@ -1,71 +1,61 @@
-// score counts and score elements
+// Define the initial scores for each team
+let homeScore = 0;
+let guestScore = 0;
 
-const score = {
-    'home': 0,
-    'guest': 0
+// Get references to the score elements for each team
+const homeScoreEl = document.getElementById("home-score");
+const guestScoreEl = document.getElementById("guest-score");
+
+// Add event listeners for score and reset buttons
+document.addEventListener('click', handleButtonClick);
+
+// Function to handle click events on score and reset buttons
+function handleButtonClick(e) {
+  if (e.target.classList.contains("score-btn")) {
+    const score = parseInt(e.target.dataset.score);
+    const side = e.target.dataset.side;
+    updateScore(score, side);
+    highlightLeadingTeam();
+  }
+  else if (e.target.classList.contains("reset-btn")) {
+    const side = e.target.dataset.side;
+    resetScore(side);
+  }
 }
 
-const scoreEl = {
-    'home': document.getElementById("home-score"),
-    'guest': document.getElementById("guest-score")
+// Function to update the score for a team
+function updateScore(score, side) {
+  if (side === 'home') {
+    homeScore += score;
+    homeScoreEl.textContent = homeScore;
+  } else if (side === 'guest') {
+    guestScore += score;
+    guestScoreEl.textContent = guestScore;
+  }
 }
 
-// event listeners
-
-document.addEventListener('click', function(e) {
-    if (e.target.classList.contains("score-btn")) {
-        handleScoreBtn(e.target.dataset.score, e.target.dataset.side)
-        highlightLead()
-    } 
-    else if (e.target.classList.contains("reset-btn")) {
-        handleResetBtn(e.target.dataset.side)
-    }
-})
-
-// event listener handler functions
-
-function handleScoreBtn(score, side) {
-    incrementScore(parseInt(score), side)
-}
-
-function handleResetBtn(side) {
-    resetScore(side)
-}
-
-// scoreboard functions
-
-function incrementScore(amount, side) {
-    scoreEl[side].textContent = score[side] += amount
-}
-
+// Function to reset the score for a team
 function resetScore(side) {
-    score[side] = 0
-    scoreEl[side].textContent = 0
-    highlightLead()
+  if (side === 'home') {
+    homeScore = 0;
+    homeScoreEl.textContent = 0;
+  } else if (side === 'guest') {
+    guestScore = 0;
+    guestScoreEl.textContent = 0;
+  }
+  highlightLeadingTeam();
 }
 
-function highlightLead() {
-    const winningSide = score.home > score.guest ? 'home' : 'guest'
-    const losingSide = winningSide === 'home' ? 'guest' : 'home'
-    scoreEl[winningSide].style.color = "lawngreen"
-    scoreEl[losingSide].style.color = "#F94F6D"
+// Function to highlight the leading team based on their score
+function highlightLeadingTeam() {
+  if (homeScore > guestScore) {
+    homeScoreEl.style.color = "lawngreen";
+    guestScoreEl.style.color = "#F94F6D";
+  } else if (guestScore > homeScore) {
+    homeScoreEl.style.color = "#F94F6D";
+    guestScoreEl.style.color = "lawngreen";
+  } else {
+    homeScoreEl.style.color = "#F94F6D";
+    guestScoreEl.style.color = "#F94F6D";
+  }
 }
-
-// function highlightHome() {
-//     if (homeCount > guestCount) {
-//         homeScore.style.color = "lawngreen"
-//     } else {
-//         homeScore.style.color = "#F94F6D"
-//     }
-// }
-// function highlightGuest() {
-//     if (guestCount > homeCount) {
-//         guestScore.style.color = "lawngreen"
-//     } else {
-//         guestScore.style.color = "#F94F6D"
-//     }
-// }
-// function checkForWinner() {
-//     highlightHome()
-//     highlightGuest()
-// }
